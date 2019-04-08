@@ -1,0 +1,64 @@
+body {
+  background-image: url("/assets/images/body1.jpg");
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+form {
+  width: 50%;
+  height: 900px;
+  padding-top: 100px;
+  margin-left: 400px;
+  /* Set a style for all buttons */
+  /* Add a hover effect for buttons */
+  /* Extra style for the cancel button (red) */
+  /* Center the avatar image inside this container */
+  /* Avatar image */
+  /* Add padding to containers */
+  /* The "Forgot password" text */
+  /* Change styles for span and cancel button on extra small screens */ }
+  form input[type=text], form input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box; }
+  form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%; }
+    form button:hover {
+      opacity: 0.8; }
+  form .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336; }
+  form .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0; }
+  form img.avatar {
+    width: 30%;
+    height: 30%;
+    border-radius: 50%; }
+  form .container {
+    padding: 16px; }
+  form span.psw {
+    float: right;
+    padding-top: 16px; }
+  @media screen and (max-width: 300px) {
+    form span.psw {
+      display: block;
+      float: none; }
+    form .cancelbtn {
+      width: 100%; } }
+  form .psw {
+    text-align: center; }
+
+/*# sourceMappingURL=login.component.css.map */

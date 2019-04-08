@@ -1,0 +1,107 @@
+<div class="admin">
+    <div class="alert alert-danger" style="display: inline-block">
+
+        <h3>Admin Panel </h3>
+    </div>
+
+    <form role="form" [formGroup]="addProductForm" (ngSubmit)="addProduct(addProductForm.value)">
+        <div class="form-group">
+
+            <label for="name">Ime:</label>
+            <input id="name" type="text" class="form-control" formControlName='name'>
+            <label for="category">Kategorija:</label>
+            <select id="category" type="text" class="form-control" formControlName='category'>
+      <option value="Patike">Patike </option>
+      <option value="Trenerke">Trenerke</option>
+      
+      </select>
+            <label for="brand">Brand:</label>
+            <select id="brand" type="text" class="form-control" formControlName='brand'>
+      <option value="Adidas">Adidas </option>
+      <option value="Nike">Nike</option>
+      <option value="New Balance">New Balance</option>
+      
+      </select>
+
+            <label for="price">Cena:</label>
+            <input id="price" type="text" class="form-control" formControlName='price'>
+            <label for="url">URL Slike:</label>
+            <input id="url" type="text" class="form-control" formControlName='url'>
+
+
+
+        </div>
+
+        <button type="submit"  class="btn btn-success">Dodaj proizvod</button>
+        <p class="center">{{message}}</p>
+    </form>
+    <br/>
+    <br/>
+</div>
+
+<div class="col-lg-12" style="color:white; display: inline-block; ">
+
+    <table class="display1" cellspacing="10" style="color:white; float: left; margin-bottom: 35px; ">
+
+        <thead>
+            <h3>Proizvodi</h3>
+            <br>
+            <tr>
+
+                <th>ID: </th>
+                <th>Name: </th>
+                <th>Category: </th>
+                <th>Brand: </th>
+                <th>Price: </th>
+                <th>Remove: </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let proizvod of proizvodi">
+                <td>{{proizvod.idProduct}}</td>
+                <td>{{proizvod.name}}</td>
+                <td>{{proizvod.category}}</td>
+                <td>{{proizvod.brand}}</td>
+                <td>{{proizvod.price}}</td>
+                <td><button type="button" class="btn btn-danger" (click)="remove(proizvod.idProduct)">
+                  <span class="glyphicon glyphicon-remove" > Ukloni</span>
+                  </button></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <div>
+    <table class="display2" cellspacing="10" style="color:white;float: left;  ">
+
+        <thead>
+            <h3>Narudzbine</h3>
+            <br>
+            <tr>
+                <th>ID: </th>
+                <th>Name: </th>
+                <th>Last Name: </th>
+                <th>Products: </th>
+                <th>Date: </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let narudzbina of narudzbine">
+                <td>{{narudzbina.idPayment}}</td>
+                <td>{{narudzbina.userName}}</td>
+                <td>{{narudzbina.userSurname}}</td>
+                <td >   <ul *ngFor="let product of narudzbina.products">
+                    <li>Product: {{product.productName}}, price: {{product.productPrice}}, quantity: {{product.quantity}}</li>
+                   </ul></td>
+                <td>{{narudzbina.date | date: 'dd/MM/yyyy HH:mm' }}</td>
+
+               
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

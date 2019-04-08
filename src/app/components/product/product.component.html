@@ -1,0 +1,59 @@
+<div class="container-fluid" style="padding-top: 200px;padding-bottom: 100px; padding-left: 50px;" *ngIf="proizvodi">
+    <div class="content-wrapper">
+        <div class="item-container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="product col-lg-5 service-image-left">
+
+
+                        <img id="item-display" src="{{proizvodi.url}}" alt="">
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-lg-5">
+                    <h4 *ngIf="proizvodi.brand_id == 1">
+                        Nike
+                    </h4>
+
+                    <h4 *ngIf="proizvodi.brand_id == 2">
+                        Adidas
+                    </h4>
+                    <h4 *ngIf="proizvodi.brand_id == 3">
+                        New Balance
+                    </h4>
+
+                    <div class="product-title">{{proizvodi.name}}</div>
+
+                    <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
+                    <hr style="border:1px solid #c17f0a;">
+
+                    <div class="product-price"> {{proizvodi.price}} Euro</div>
+                    <div class="product-stock">In Stock</div>
+                    <hr>
+                    <div><p style="color:white">Quantity: </p><input style="margin-bottom:4%" #quantity type="number" min="1" value="1" name="quantity" id="quantity" /></div>
+                    
+                    <div class="btn-group cart " *ngIf="isAuth != null && !proizvodi.isAdded">
+                        <button class="btn btn-outline-danger" (click)="proizvodi.isAdded = !proizvodi.isAdded; dodajUKorpu(proizvodi.idProduct,quantity.value)">Add to Cart </button>
+                    </div>
+
+                    <ng-container *ngIf="isAuth != null && proizvodi.isAdded">
+                        <div class="btn-group cart ">
+                            <button class="btn btn-outline-danger" disabled>Item added<span class="glyphicon glyphicon-shopping-cart" ></span></button>
+                        </div>
+                    </ng-container>
+                    <!-- <ng-container>
+                        <button class="btn btn-default" (click)="viewProduct(proizvod.id)">View</button>
+                    </ng-container> -->
+
+                    <ng-container *ngIf="isAuth == null">
+                        <div class="btn-group cart ">
+                            <button class="btn btn-outline-danger" [routerLink]="['/login']">Add to Cart</button>
+                        </div>
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,24 @@
+.admin {
+  padding-top: 120px; }
+  .admin th {
+    color: white; }
+  .admin form {
+    color: white; }
+  .admin thead tr {
+    padding-right: 20px; }
+
+tbody tr td {
+  padding-right: 40px;
+  color: white; }
+
+thead tr th {
+  padding-right: 40px; }
+
+.col-lg-12 {
+  padding-right: 450px; }
+  .col-lg-12 .display1 {
+    padding-right: 450px; }
+  .col-lg-12 .display2 {
+    padding-left: 200px; }
+
+/*# sourceMappingURL=admin.component.css.map */

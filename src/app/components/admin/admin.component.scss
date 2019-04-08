@@ -1,0 +1,46 @@
+.admin {
+    padding-top: 120px;
+    th {
+        color: white;
+    }
+    form {
+        color: white;
+    }
+    thead {
+        tr {
+            padding-right: 20px;
+        }
+    }
+}
+
+.center{
+    text-align: center;
+    color: whitesmoke;
+}
+
+tbody {
+    tr {
+        td {
+            padding-right: 40px;
+            color: white;
+        }
+    }
+}
+
+thead {
+    tr {
+        th {
+            padding-right: 40px;
+        }
+    }
+}
+
+.col-lg-12 {
+    padding-right: 450px;
+    .display1 {
+        padding-right: 450px;
+    }
+    .display2 {
+        padding-left: 200px;
+    }
+}

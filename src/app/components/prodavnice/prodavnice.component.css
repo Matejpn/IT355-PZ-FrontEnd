@@ -1,0 +1,21 @@
+section {
+  height: 900px;
+  padding-top: 100px; }
+  section h1 {
+    text-align: center;
+    padding-top: 20px; }
+  section .col-lg-12 {
+    padding-left: 650px; }
+    section .col-lg-12 .display th {
+      color: white;
+      font-size: 25px; }
+    section .col-lg-12 .display tbody tr td {
+      padding-right: 40px;
+      color: white;
+      font-size: 20px; }
+  section hr {
+    border: 1px solid white; }
+  section .col-md-12 {
+    padding-top: 30px; }
+
+/*# sourceMappingURL=prodavnice.component.css.map */

@@ -1,0 +1,28 @@
+section {
+  padding-top: 150px;
+  height: 800px; }
+  section h2 {
+    color: white;
+    padding-left: 400px;
+    padding-bottom: 30px; }
+    section h2 img {
+      height: 50px;
+      width: 70px;
+      padding-left: 20px; }
+  section th {
+    color: #c17f0a; }
+  section td {
+    color: #c17f0a; }
+    section td img {
+      border-radius: 50%; }
+  section a {
+    color: #c17f0a;
+    padding-left: 10px; }
+  section .paymentWrap {
+    display: inline-block; }
+    section .paymentWrap img {
+      width: 300px; }
+  section .row {
+    padding-top: 15px; }
+
+/*# sourceMappingURL=korpa.component.css.map */

@@ -1,0 +1,32 @@
+section {
+    height: 900px;
+    padding-top: 100px;
+    h1 {
+        text-align: center;
+        padding-top: 20px;
+    }
+    .col-lg-12 {
+        padding-left: 650px;
+        .display {
+            th {
+                color: white;
+                font-size: 25px;
+            }
+            tbody {
+                tr {
+                    td {
+                        padding-right: 40px;
+                        color: white;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+    hr {
+        border: 1px solid white;
+    }
+    .col-md-12 {
+        padding-top: 30px;
+    }
+}

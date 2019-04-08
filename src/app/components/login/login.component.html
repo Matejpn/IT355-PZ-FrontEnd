@@ -1,0 +1,65 @@
+<!-- <div class="container-fluid img-responsive img-center log">
+  <div class="container form">
+
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4"></div>
+      <div class="col-4">
+        <form role="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input id="email" type="email" class="form-control" formControlName="email">
+          </div>
+          <div class="form-group ">
+            <label for="password">Password:</label>
+            <input id="password" type="password" class="form-control" formControlName="password">
+          </div>
+          <div class="row">
+            <div class="col-6 text-left">
+              <a href="#">Forgot account?</a>
+            </div>
+            <div class="col-6 text-right">
+              <button type="submit" class="btn btn-outline-dark">Sign in</button>
+            </div>
+          </div>
+        </form>
+        <hr>
+        <div class="row">
+          <div class="col-12">
+            <p>Don't Have an Account?
+              <a routerLink="/register">
+                <span> Register Now</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<body>
+    <form role="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+        <div class="imgcontainer">
+            <img src="assets/images/avatar.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container" style="color:white">
+            <label for="uname"><b>E-mail</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required formControlName="email">
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required formControlName="password">
+
+            <button type="submit">Login</button>
+            <label>
+    <input type="checkbox" checked="checked" name="remember"> Remember me
+  </label>
+        </div>
+        <p class="center">{{message}}</p>
+        <div class="container">
+
+            <span class="psw" style="color:white">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</body>

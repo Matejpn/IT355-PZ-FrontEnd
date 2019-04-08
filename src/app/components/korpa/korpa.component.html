@@ -1,0 +1,179 @@
+<section>
+    <ng-container *ngIf="!isDone">
+
+        <div class="container">
+            <label style="padding-right: 10px;color:#c17f0a;">IME</label>
+            <input type="text" name="IME" [(ngModel)]="IME">
+
+
+            <div class="row">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <table class="table table-hover">
+
+                        <thead>
+                            <!--NASLOV TABELE-->
+                            <tr>
+                                <th>Proizvod</th>
+                                <th>Kolicina</th>
+                                <th class="text-center">Cena</th>
+                                <th class="text-center">Ukupno</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let proizvod of prKorpa | SearchPipeName: IME ">
+                                <!--PODACI U TABELI-->
+                                <ng-container *ngIf="!proizvod.isAdded">
+                                    <td class="col-sm-8 col-md-6">
+                                        <div class="media">
+                                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="{{proizvod.url}}" style="width: 80px; height: 80px;"> </a>
+                                            <h4 *ngIf="proizvod.brand == 'Nike'">
+                                                Nike
+                                            </h4>
+
+                                            <h4 *ngIf="proizvod.brand == 'Adidas'">
+                                                Adidas
+                                            </h4>
+                                            <h4 *ngIf="proizvod.brand == 'New Balance'">
+                                                New Balance
+                                            </h4>
+
+                                            <div class="media-body">
+
+                                                <h4 class="media-heading"><a href="#">{{proizvod.name}}</a></h4>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <td class="col-sm-1 col-md-1 text-center"><strong>{{proizvod.kolicina}}</strong></td>
+
+                                    <td class="col-sm-1 col-md-1 text-center"><strong>{{proizvod.price}}</strong></td>
+                                    <td class="col-sm-1 col-md-1 text-center"><strong>{{proizvod.price * proizvod.kolicina}}</strong></td>
+                                    <td class="col-sm-1 col-md-1">
+                                        <button type="button" class="btn btn-danger" (click)="remove(proizvod.idProduct)">
+                              <span class="glyphicon glyphicon-remove" > Ukloni</span>
+                          </button></td>
+                                </ng-container>
+                            </tr>
+
+                            <!--OVDE STOJI UKUPNO-->
+                            <tr *ngIf="prKorpa">
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <h5>Ukupno</h5>
+                                </td>
+                                <td class="text-right">
+                                    <h5><strong> {{this.getTotal()}}</strong></h5>
+                                </td>
+                            </tr>
+                            <!--RED ZA CIFRU SLANJA-->
+                            <tr *ngIf="prKorpa">
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <h5>PDV: </h5>
+                                </td>
+                                <td class="text-right">
+                                    <h5><strong> {{this.postarina()}}</strong></h5>
+                                </td>
+                            </tr>
+                            <!--SLANJE PLUS UKUPNO-->
+                            <tr *ngIf="prKorpa">
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>
+                                    <h3>Total: </h3>
+                                </td>
+                                <td class="text-right">
+                                    <h3><strong>{{this.getUkupno()}} </strong></h3>
+                                </td>
+                            </tr>
+
+                            <!--NARUCIVANJE I POVRATAK NAZAD NA PROIZVODE-->
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td>   </td>
+                                <td></td>
+                                <td>
+                                    <button type="button" class="btn btn-success" (click)="isDone=true">
+                              Naruci <span class="glyphicon glyphicon-play"></span>
+                          </button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <!--PRIKAZ DELA ZA NARUCIVANJE-->
+    <ng-container *ngIf="isDone">
+        <div class="container" style="color:white">
+            <div class="row">
+                <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+                    <div class="row" *ngIf="user">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <address>
+                              <strong>{{user.firstname}} {{user.lastname}}</strong>
+                              <br>
+                              {{user.address}}
+                          </address>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="text-center">
+                            <h1>Narudzbenica</h1>
+                        </div>
+
+                        <div class="paymentWrap">
+                            <div class="btn-group paymentBtnGroup btn-group-justified" data-toggle="buttons" style="width: 100%;">
+                                <label class="btn paymentMethod active">
+                                  <div><img class="img-responsive img-center" src="assets\images\aks.png" alt="" style="height: 200px;width: 300px; border: 2px solid white" ></div>
+                                  <input type="radio" name="options" checked>
+                              </label>
+                                <label class="btn paymentMethod">
+                                  <div><img class="img-responsive img-center" src="assets\images\bex.png" alt="" style=" height: 200px;width: 300px; border: 2px solid white"></div>
+                                  <input type="radio" name="options">
+                              </label>
+                                <label class="btn paymentMethod">
+                                  <div><img class="img-responsive img-center" src="assets\images\dhl.png" alt="" style=" height: 200px;width: 300px; border: 2px solid white"></div>
+                                  <input type="radio" name="options">
+                              </label>
+                            </div>
+                        </div>
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr *ngIf="prKorpa">
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td class="text-right">
+                                        <h4><strong>Za naplatu: </strong></h4>
+                                    </td>
+                                    <td class="text-center text-danger">
+                                        <h4><strong>{{getUkupno()}} Euro</strong></h4>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-success btn-lg btn-block" (click)="checkout()">
+                          Zavrsi   <span class="glyphicon glyphicon-chevron-right"></span>
+                      </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </ng-container>
+
+
+
+
+
+
+</section>

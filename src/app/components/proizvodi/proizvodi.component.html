@@ -1,0 +1,78 @@
+<div class="main">
+    <div class="top">
+        <img src="assets/images/pocetna.jpg" alt="">
+        <div class="centered">PRODUCTS</div>
+    </div>
+
+
+    <div class="screen">
+        <div class="row">
+            <div class="col-md-12" id="col">
+            
+                <div class="btn-group" dropdown id="brand">
+                    <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle" aria-controls="dropdown">
+          Brand
+          <span class="caret"></span>
+        </button>
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+                        <li role="menuitem">
+                            <a class="dropdown-item">Adidas (3)</a>
+                        </li>
+                        <li role="menuitem">
+                            <a class="dropdown-item">Nike (3)</a>
+                        </li>
+                        <li role="menuitem">
+                            <a class="dropdown-item">New Balance (3)</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container ">
+            <div class="row text-center">
+                <div class="col-4 shoe" *ngFor=" let proizvod of products">
+                    <ng-container *ngIf="proizvod.category === id">
+                        <img class="img-thumbnail" src="{{proizvod.url}}" alt="Patike">
+                        <br>
+
+                        <h4 *ngIf="proizvod.brand == 'Nike'">
+                            Nike {{proizvod.name}}
+                        </h4>
+
+                        <h4 *ngIf="proizvod.brand == 'Adidas'">
+                            Adidas {{proizvod.name}}
+                        </h4>
+                        <h4 *ngIf="proizvod.brand == 'New Balance'">
+                            New Balance {{proizvod.name}}
+                        </h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6 text-left">
+                                <p class="text-justify; color:white;">
+                                    {{proizvod.price}} Euro
+                                </p>
+                            </div>
+                            <ng-container>
+                                <div class="col-6 text-right ">
+                                    <button class="btn btn-outline-danger" (click)="viewProduct(proizvod.idProduct)">View Product</button>
+                                </div>
+                            </ng-container>
+
+
+
+
+
+                        </div>
+
+                    </ng-container>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

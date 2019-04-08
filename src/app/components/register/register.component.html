@@ -1,0 +1,36 @@
+
+<body>
+    <form role="form" [formGroup]="registerForm" (ngSubmit)="onRegistration(registerForm.value)">
+        <div class="imgcontainer">
+            <img src="assets/images/avatar.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container" style="color:white">
+
+            <label for="firstname"><b>Firstname</b></label>
+            <input id="firstname" type="text" class="form-control" formControlName='firstname'>
+
+            <label for="lastname"><b>Lastname</b></label>
+            <input id="lastname" type="text" class="form-control" formControlName='lastname'>
+
+
+            <label for="address"><b>Adress</b></label>
+            <input id="address" type="text" class="form-control" formControlName='address'>
+
+
+            <label for="email"><b>Email</b></label>
+            <input type="email" type="text" class="form-control" formControlName="email">
+
+
+            <label for="password"><b>Password</b></label>
+            <input id="password" type="text" class="form-control" formControlName='password'>
+
+
+            <button type="submit">Register</button>
+            <p class="center">{{message}}</p>
+
+        </div>
+
+    </form>
+ 
+</body>
